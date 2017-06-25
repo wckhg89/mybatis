@@ -18,14 +18,13 @@ import org.springframework.transaction.PlatformTransactionManager;
 @Configuration
 public class DataSourceConfig {
 
-     // datasource, sqlSessionFactory(ds, mapperLocation) , sqlSessionTemplate
     @Bean
     @Primary
     public HikariDataSource dataSource () {
         HikariConfig hikariConfig = new HikariConfig();
 
         hikariConfig.setDriverClassName("org.h2.Driver");
-        hikariConfig.setJdbcUrl("jdbc:h2:~/my-guppy;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE");
+        hikariConfig.setJdbcUrl("jdbc:h2:mem:test;MVCC=true;DB_CLOSE_DELAY=-1;MODE=MySQL");
         hikariConfig.setUsername("sa");
         hikariConfig.setPassword("");
         hikariConfig.addDataSourceProperty("cachePrepStmts", "true");

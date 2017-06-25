@@ -8,7 +8,7 @@ public class User {
 
     private String userName;
 
-    protected User() {}
+    public User() {}
 
     public User(String userName) {
         this.userName = userName;
