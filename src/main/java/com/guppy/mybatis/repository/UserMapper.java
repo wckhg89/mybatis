@@ -13,18 +13,18 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 
-    public List<User> findAll();
+    List<User> findAll();
 
-    public List<User> findByUserName(@Param("userName") String userName);
+    List<User> findByUserName(@Param("userName") String userName);
 
-    public User findOne(Long id);
+    User findOne(Long id);
 
-    public Boolean exists(Long id);
+    Boolean exists(Long id);
 
-    public void save(User user);
+    void save(User user);
 
-    public void update(User user);
+    void update(User user);
 
-    public void delete(User user);
+    void delete(User user);
 
 }

@@ -11,6 +11,9 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
@@ -36,19 +39,22 @@ public class UserMapperTest {
         userMapper.save(entity);
 
         // todo : List...
-        entity = (User) userMapper.findByUserName("stunstun");
+        List<User> userList
+                = userMapper.findByUserName("stunstun");
+
+        assertNotNull(userList);
+
     }
 
     @Test
     public void insertAndDelete() {
         assertNotNull(entity);
 
+        List<User> users = userMapper.findByUserName("stunstun");
+        userMapper.delete(users.get(0));
 
-        User user = (User) userMapper.findByUserName("stunstun");
-        userMapper.delete(user);
-
-        user = (User) userMapper.findByUserName("stunstun");
-        assertNull(user);
+        List<User> deleteUsers = userMapper.findByUserName("stunstun");
+        assertEquals(0, deleteUsers.size());
 
     }
 
