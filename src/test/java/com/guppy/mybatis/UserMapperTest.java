@@ -38,7 +38,6 @@ public class UserMapperTest {
 
         userMapper.save(entity);
 
-        // todo : List...
         List<User> userList
                 = userMapper.findByUserName("stunstun");
 
