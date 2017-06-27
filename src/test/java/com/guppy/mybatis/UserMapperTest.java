@@ -15,7 +15,6 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 
 /**
  * Created by kanghonggu on 2017. 6. 25..
@@ -43,6 +42,13 @@ public class UserMapperTest {
 
         assertNotNull(userList);
 
+    }
+
+    @Test
+    public void findOneTest () {
+        User user = userMapper.findOne(1L);
+
+        assertNotNull(user);
     }
 
     @Test
