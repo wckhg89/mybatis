@@ -1,4 +1,4 @@
-package com.guppy.mybatis;
+package com.guppy.mybatis.config;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -19,31 +19,30 @@ import static org.junit.Assert.*;
  */
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class DataSourceTest {
 
+    private static Logger logger = LoggerFactory.getLogger(DataSourceTest.class);
+
     @Autowired
-    private DataSource ds; //작성
+    private DataSource ds;
 
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 
     @Test
     public void testConnection() throws Exception{ //작성
-        System.out.println("ds : "+ds);
+        logger.info("DataSource - {}", ds);
 
         Connection con = ds.getConnection(); //ds(DataSource)에서 Connection을 얻어내고
-
-        System.out.println("con : "+con); //확인 후
+        logger.info("Connection - {}", con);
 
         con.close(); //close
     }
 
-
     @Test
     public void testSqlSessionTemplate () {
         assertNotNull(sqlSessionTemplate);
-
     }
 
 }

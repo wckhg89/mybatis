@@ -1,4 +1,4 @@
-package com.guppy.mybatis;
+package com.guppy.mybatis.mapper;
 
 import com.guppy.mybatis.repository.UserMapper;
 import com.guppy.mybatis.repository.entity.User;
@@ -22,7 +22,7 @@ import static org.junit.Assert.assertNotNull;
 @Transactional
 @Rollback
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class UserMapperTest {
 
     @Autowired
