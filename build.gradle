@@ -37,6 +37,8 @@ dependencies {
 	// https://mvnrepository.com/artifact/com.zaxxer/HikariCP
 	compile("com.zaxxer:HikariCP:$hikariCPVersion")
 
+	// https://mvnrepository.com/artifact/org.projectlombok/lombok
+	compileOnly("org.projectlombok:lombok:1.16.16")
 	runtime('com.h2database:h2')
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')
