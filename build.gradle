@@ -3,6 +3,8 @@ buildscript {
 		springBootVersion = '1.5.4.RELEASE'
 		mybatisStarterVersion = '1.3.0'
 		hikariCPVersion = '2.6.1'
+		springSecurityOauth2Version = '2.1.0.RELEASE'
+        springDataRedisSessionVersion = '1.3.1.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -36,6 +38,14 @@ dependencies {
 
 	// https://mvnrepository.com/artifact/com.zaxxer/HikariCP
 	compile("com.zaxxer:HikariCP:$hikariCPVersion")
+
+    // https://mvnrepository.com/artifact/org.springframework.session/spring-session-data-redis
+    compile("org.springframework.session:spring-session-data-redis:${springDataRedisSessionVersion}")
+
+
+    // https://mvnrepository.com/artifact/org.springframework.security.oauth/spring-security-oauth2
+	compile("org.springframework.security.oauth:spring-security-oauth2:${springSecurityOauth2Version}")
+
 
 	// https://mvnrepository.com/artifact/org.projectlombok/lombok
 	compileOnly("org.projectlombok:lombok:1.16.16")
